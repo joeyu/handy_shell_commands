@@ -1,21 +1,20 @@
 # `adb shell` command tips
 
-## 'input keyevent`
+## `input keyevent`
 
 * POWER key
 
    > adb shell input keyevent KEYCODE_POWER
 
-## sqlite3
+## `sqlite3`
 
-* Settings
+* Opening the database of `com.android.providers.settings`
 
 ```
 $ adb root
 $ adb shell 
 $ sqlite3 /data/data/com.android.providers.settings/databases/settings.db
 ```
-
 
 * Querying the database' tables
 ```
