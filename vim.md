@@ -1,5 +1,10 @@
 # `vim` tips
 
+- [vim tips](#)
+	- [Saving with the root privilege](#)
+	- [Reading a range of lines from a file](#)
+	- [Enabling X clipboard in ubuntu](#)
+
 ## Saving with the `root` privilege
 ```
 :w !sudo tee %
