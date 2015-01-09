@@ -101,111 +101,111 @@ $ input keyevent <keycode>
 
 ### Touch screen
 
-* Swiping from the bottom of the touch screen.
+#### Swiping from the bottom of the touch screen.
 
-  ```
-  $ adb shell input swipe  500 1900 500 1000 
-  ```
+```
+$ adb shell input swipe  500 1900 500 1000 
+```
 
 ## The `sqlite3` database
 
-* Opening the database of `com.android.providers.settings`
+### Opening the database of `com.android.providers.settings`
 
-  ```
-  $ adb root
-  $ adb shell 
-  # sqlite3 /data/data/com.android.providers.settings/databases/settings.db
-  sqlite> .exit
-  #
-  ```
+```
+$ adb root
+$ adb shell 
+# sqlite3 /data/data/com.android.providers.settings/databases/settings.db
+sqlite> .exit
+#
+```
 
-* Querying the tables of the database
-  ```
-  sqlite> .tables
-  android_metadata   bookmarks          secure
-  bluetooth_devices  global             system
-  ```
+### Querying the tables of the database
+```
+sqlite> .tables
+android_metadata   bookmarks          secure
+bluetooth_devices  global             system
+```
 
-* Querying the 'system' table  
+### Querying the 'system' table  
 
-  ```
-  sqlite> select * from system;
-  ```
+```
+sqlite> select * from system;
+```
 
-* Setting screen to sleep after 1 hour
+### Setting screen to sleep after 1 hour
 
-  ```
-  sqlite> update system set value='360000' where name='screen_off_timeout';
-  
-  ```
+```
+sqlite> update system set value='360000' where name='screen_off_timeout';
 
-  After updating the database, the system needs to restart to take effect.
+```
+
+After updating the database, the system needs to restart to take effect.
 
 ## Application 
-* Starting an application's activity
+### Starting an application's activity
 
-  ```
-  # am start -a <ACTION> -n <PACKAGE>/.<ACTIVITY>
-  ```
+```
+# am start -a <ACTION> -n <PACKAGE>/.<ACTIVITY>
+```
 
-  `INTENT`, `PACKAGE` and `ACTIVITY` can be found in the `AndroidManifest.xml` file of the apk file. 
-  
-  Decode the `AndroidManifest.xml` file by using [apktool](#apktool).
+`INTENT`, `PACKAGE` and `ACTIVITY` can be found in the `AndroidManifest.xml` file of the apk file. 
 
-  In the decoded text, search the decoded text for `<package=`, of which the value is `PACKAGE`. 
-  
-  And then search for `<application`, and the first `<activity` tag under it, and its `android:name=` attribute, of which the value is a domain name, and its last component is `ACTIVITY`. 
-  
-  And then search for the `<intent-filter>` under the `<activity`, and `<action` and its `android:name=` attribute, of which the value is the `ACTION`.
+Decode the `AndroidManifest.xml` file by using [apktool](#apktool).
 
-  For exmple, the following command starts chrome shell browser with http://www.yahoo.com:
+In the decoded text, search the decoded text for `<package=`, of which the value is `PACKAGE`. 
 
-  ```
-  $ am start -a android.intent.action.MAIN -n -n org.chromium.chrome.shell/.ChromeShellActivity -d http://www.yahoo.com
-  ```
+And then search for `<application`, and the first `<activity` tag under it, and its `android:name=` attribute, of which the value is a domain name, and its last component is `ACTIVITY`. 
+
+And then search for the `<intent-filter>` under the `<activity`, and `<action` and its `android:name=` attribute, of which the value is the `ACTION`.
+
+For exmple, the following command starts chrome shell browser with http://www.yahoo.com:
+
+```
+$ am start -a android.intent.action.MAIN -n -n org.chromium.chrome.shell/.ChromeShellActivity -d http://www.yahoo.com
+```
 
 ## Network
 
-* Enabling the WiFi
-  ```
-  $ svc wifi enable
-  ``` 
+### Enabling the WiFi
+```
+$ svc wifi enable
+``` 
 
-* Configuring the ethernet to use static IP address
+### Configuring the ethernet to use static IP address
 
-  The following commands set the `eth0` ethernet device:
+The following commands set the `eth0` ethernet device:
 
-  ```
-  # netcfg eth0 up
-  # ifconfig eth0 <IP> netmask <NETMASK>
-  # route add default gw <GATEWAY> dev eth0
-  # setprop net.dns1 8.8.8.8
-  # setprop net.dns2 4.4.4.4
-  ```
+```
+# netcfg eth0 up
+# ifconfig eth0 <IP> netmask <NETMASK>
+# route add default gw <GATEWAY> dev eth0
+# setprop net.dns1 8.8.8.8
+# setprop net.dns2 4.4.4.4
+```
 
 ## .apk file
 
 <a name="apktool">
-* Manipulating .apk files
+### Manipulating .apk files
   
-  [apktool] is a very powerful tool written in Java for packing and unpacking the .apk files.
+[apktool] is a very powerful tool written in Java for packing and unpacking the .apk files.
 
-  For example, unpacking file foo.apk:
+For example, unpacking file foo.apk:
 
-  ```
-  $ java -jar apktool.jar d foo.apk
-  ```
+```
+$ java -jar apktool.jar d foo.apk
+```
 
-  It is recommanded to create a shell script `apktool` along with the apktool.jar file in $PATH to ease typing:
+It is recommanded to create a shell script `apktool` along with the apktool.jar file in $PATH to ease typing:
 
-  ```
-  #!/bin/sh
-  DIR=$(dirname $0)
-  java -jar $DIR/apktool.jar $*
-  ```
+```
+#!/bin/sh
+DIR=$(dirname $0)
+java -jar $DIR/apktool.jar $*
+```
   
 
 
 
 
-[apktool]: https://code.google.com/p/android-apktool/
+[apktool]:          https://code.google.com/p/android-apktool/
