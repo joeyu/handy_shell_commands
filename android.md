@@ -203,10 +203,10 @@ The following commands configures the `eth0` ethernet device with DHCP:
 
 And you will probably have to set DNS servers, as some DHCP servers do not return DNS servers properly.
 
+```
 # setprop net.dns1 8.8.8.8
 # setprop net.dns2 8.8.4.4
-
-
+```
 Or, to configure with static IP address:
 
 ```
