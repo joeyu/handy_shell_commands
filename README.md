@@ -1,6 +1,6 @@
 # Handy shell commands
 
-[adb shell](./adb_shell.md)
+[android](./android.md)
 
 [vim](./vim.md)
 
