@@ -1,8 +1,5 @@
 # `vim` tips
 
-* auto-gen TOC:
-{:toc}
-
 ## Saving with the `root` privilege
 ```
 :w !sudo tee %
