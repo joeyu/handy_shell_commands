@@ -180,7 +180,7 @@ The following commands set the `eth0` ethernet device:
 # ifconfig eth0 <IP> netmask <NETMASK>
 # route add default gw <GATEWAY> dev eth0
 # setprop net.dns1 8.8.8.8
-# setprop net.dns2 4.4.4.4
+# setprop net.dns2 8.8.4.4
 ```
 
 ## .apk file
