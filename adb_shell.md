@@ -5,6 +5,23 @@
 
 Code | String | Description
 -----|--------|------------
+0 |  "KEYCODE_UNKNOWN"  |
+1 |  "KEYCODE_MENU"  |
+2 |  "KEYCODE_SOFT_RIGHT"  |
+3 |  "KEYCODE_HOME"  |
+4 |  "KEYCODE_BACK"  |
+5 |  "KEYCODE_CALL"  |
+6 |  "KEYCODE_ENDCALL"  |
+7 |  "KEYCODE_0"  |
+8 |  "KEYCODE_1"  |
+9 |  "KEYCODE_2"  |
+10 |  "KEYCODE_3"  |
+11 |  "KEYCODE_4"  |
+12 |  "KEYCODE_5"  |
+13 |  "KEYCODE_6"  |
+14 |  "KEYCODE_7"  |
+15 |  "KEYCODE_8"  |
+16 |  "KEYCODE_9"  |
 17 |  "KEYCODE_STAR"        |
 18 |  "KEYCODE_POUND"            |
 19 |  "KEYCODE_DPAD_UP" | Moving up the focus
@@ -78,8 +95,10 @@ Code | String | Description
 ### `input swipe`
 
 * Swiping from the bottom of the touch screen.
- 
-> adb shell input swipe  500 1900 500 1000 
+
+   ```
+   $ adb shell input swipe  500 1900 500 1000 
+   ```
 
 ## `sqlite3`
 
@@ -88,7 +107,7 @@ Code | String | Description
 ```
 $ adb root
 $ adb shell 
-$ sqlite3 /data/data/com.android.providers.settings/databases/settings.db
+# sqlite3 /data/data/com.android.providers.settings/databases/settings.db
 ```
 
 * Querying the database' tables
@@ -108,3 +127,37 @@ sqlite> select * from system;
 sqlite> update system set value='360000' where name='screen_off_timeout';
 
 ```
+
+## `am`
+* Starting an application's activity
+
+   ```
+   # am start -a <ACTION> -n <PACKAGE>/.<ACTIVITY>
+   ```
+
+   `INTENT`, `PACKAGE` and `ACTIVITY` can be found in the `AndroidManifest.xml` file of the apk file. 
+   
+   Decode the `AndroidManifest.xml` file by using [axml2xml.pl](./axml2xml.pl)
+
+   ```
+   $ ./axml2xml.pl AndroidManifest.xml
+   ```
+    
+   In the decoded text, search the decoded text for `<package=`, of which the value is `PACKAGE`. 
+   
+   And then search for `<application`, and the first `<activity` tag under it, and its `android:name=` attribute, of which the value is a domain name, and its last component is `ACTIVITY`. 
+   
+   And then search for the `<intent-filter>` under the `<activity`, and `<action` and its `android:name=` attribute, of which the value is the `ACTION`.
+
+   For exmple, the following command starts chrome shell browser with http://www.yahoo.com:
+
+   ```
+   $ am start -a android.intent.action.MAIN -n -n org.chromium.chrome.shell/.ChromeShellActivity -d http://www.yahoo.com
+   ```
+
+
+
+
+```
+am 
+am 
