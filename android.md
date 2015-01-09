@@ -196,7 +196,7 @@ $ input keyevent <keycode>
   $ java -jar apktool.jar d foo.apk
   ```
 
-  It is recommanded to create a shell script along with the apktool.jar file in $PATH to simplify typing
+  It is recommanded to create a shell script `apktool` along with the apktool.jar file in $PATH to ease typing:
 
   ```
   #!/bin/sh
