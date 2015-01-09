@@ -9,6 +9,7 @@ $ input keyevent <keycode>
 ```
 
 * Key codes
+
   Code | String | Description
   -----|--------|------------
   0 |  "KEYCODE_UNKNOWN"  |
@@ -149,12 +150,8 @@ $ input keyevent <keycode>
 
   `INTENT`, `PACKAGE` and `ACTIVITY` can be found in the `AndroidManifest.xml` file of the apk file. 
   
-  Decode the `AndroidManifest.xml` file by using [axml2xml.pl](./axml2xml.pl)
+  Decode the `AndroidManifest.xml` file by using [apktool](#apktool).
 
-  ```
-  $ ./axml2xml.pl AndroidManifest.xml
-  ```
-   
   In the decoded text, search the decoded text for `<package=`, of which the value is `PACKAGE`. 
   
   And then search for `<application`, and the first `<activity` tag under it, and its `android:name=` attribute, of which the value is a domain name, and its last component is `ACTIVITY`. 
@@ -188,6 +185,7 @@ $ input keyevent <keycode>
 
 ## .apk file
 
+<a name="apktool">
 * Manipulating .apk files
   
   [apktool] is a very powerful tool written in Java for packing and unpacking the .apk files.
@@ -196,6 +194,14 @@ $ input keyevent <keycode>
 
   ```
   $ java -jar apktool.jar d foo.apk
+  ```
+
+  It is recommanded to create a shell script along with the apktool.jar file in $PATH to simplify typing
+
+  ```
+  #!/bin/sh
+  DIR=$(dirname $0)
+  java -jar $DIR/apktool.jar $*
   ```
   
 
