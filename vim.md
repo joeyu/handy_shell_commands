@@ -1,9 +1,7 @@
 # `vim` tips
 
-- [vim tips](#)
-	- [Saving with the root privilege](#)
-	- [Reading a range of lines from a file](#)
-	- [Enabling X clipboard in ubuntu](#)
+* auto-gen TOC:
+{:toc}
 
 ## Saving with the `root` privilege
 ```
