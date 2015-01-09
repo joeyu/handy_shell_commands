@@ -118,9 +118,9 @@ bluetooth_devices  global             system
 ```
 
 * Querying the 'system' table  
-```
-sqlite> select * from system;
-```
+  ```
+  sqlite> select * from system;
+  ```
 
 * Setting screen to sleep after 1 hour
 ```
