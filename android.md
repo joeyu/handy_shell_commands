@@ -171,9 +171,43 @@ $ am start -a android.intent.action.MAIN -n -n org.chromium.chrome.shell/.Chrome
 $ svc wifi enable
 ``` 
 
-### Configuring the ethernet to use static IP address
+### Showing the ethernet IP address
 
-The following commands set the `eth0` ethernet device:
+The following command show the IP address of the ethernet `eth0`:
+
+```
+$ ip addr show eth0
+```
+
+Or,
+
+```
+$ ifconfig eth0
+```
+
+Or,
+
+```
+$ netcfg
+```
+
+### Configuring the ethernet 
+
+
+The following commands configures the `eth0` ethernet device with DHCP:
+
+```
+# netcfg eth0 up
+# netcfg eth0 dhcp
+```
+
+And you will probably have to set DNS servers, as some DHCP servers do not return DNS servers properly.
+
+# setprop net.dns1 8.8.8.8
+# setprop net.dns2 8.8.4.4
+
+
+Or, to configure with static IP address:
 
 ```
 # netcfg eth0 up
@@ -182,6 +216,16 @@ The following commands set the `eth0` ethernet device:
 # setprop net.dns1 8.8.8.8
 # setprop net.dns2 8.8.4.4
 ```
+
+### Configuring the WiFi
+
+The `wpa_supplicant` uses the configuration file in
+
+>/data/misc/wifi/wpa_supplicant.conf
+
+
+
+ 
 
 ## .apk file
 
