@@ -26,7 +26,7 @@ $ repo forall -c 'git merge branch_to_merge'
 
 ## How to use an AOSP repo mirror when checking out a third-party Android repo?
 
-An Android repo consists of 200+ projects. Most of the projects of a third-party's Android repo actually just point to the corresponding ones of the AOSP repo, meaning they share the same projects. If you have a local AOSP source mirror, you can use it to save your internet bandwidth (hence your time) enormously when checking out the third-party's repo. For how to establish an AOSP repo mirror, please see section [Using a local mirror](http://source.android.com/source/downloading.html#using-a-local-mirror)
+An AOSP repo consists of 500+ projects. Most of the projects of a third-party's repo actually just point to the corresponding ones of the AOSP repo, meaning they share the same projects. A [local AOSP source mirror](http://source.android.com/source/downloading.html#using-a-local-mirror) can be used to save your internet bandwidth (hence your time) enormously when checking out a third-party's repo.
 
 Assuming you have a third-party Android repo located in `git://git.insignal.co.kr/samsung/exynos/android/`, and you have an AOSP mirror in `/path/to/local/aosp/mirror`, you can save your time by:
 
