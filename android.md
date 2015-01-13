@@ -164,6 +164,12 @@ For exmple, the following command starts chrome shell browser with http://www.ya
 $ am start -a android.intent.action.MAIN -n -n org.chromium.chrome.shell/.ChromeShellActivity -d http://www.yahoo.com
 ```
 
+To start 'Settings' and go to WiFi settings page:
+
+```
+am start -a android.intent.action.MAIN -n com.android.settings/.wifi.WifiSettings
+```
+
 ## Network
 
 ### Enabling the WiFi
