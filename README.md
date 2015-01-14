@@ -4,5 +4,7 @@
 
 [aosp](./aosp.md)
 
+[kernel](./kernel.md)
+
 [vim](./vim.md)
 
