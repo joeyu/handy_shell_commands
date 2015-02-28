@@ -1,0 +1,46 @@
+# `ubuntu` tips
+
+## Devices
+The devices can be queried in the `/sys/class` directory. For instance, to query the network devices in your system is located in `/sys/class/net`.
+
+
+## Network
+
+### Fixing the MAC address
+The NIC devices of some embedded boards may not have EEPROM to store MAC addresses. The driver of such an NIC device may assign a random MAC address when being loaded. 
+
+The following commands allows the user to set the MAC address of an ethernet device `eth0` to `ca:0f:d1:78:15:f5`: 
+```
+# ifdown eth0
+# ifconfig eth0 hw ether ca:0f:d1:78:15:f5
+# ifup eth0
+```
+
+You may let the system set this automatically with the following directives in `/etc/network/interfaces`:
+```
+auto eth0
+iface eth0 inet dhcp
+hwaddress ether ca:0f:d1:78:15:f5 
+```
+
+### Sharing the internet connection of host A with host B
+On host A with IP 192.168.0.1:
+```
+echo 1 | sudo tee /proc/sys/net/ipv4/ip_forward > /dev/null
+sudo iptables -P FORWARD ACCEPT
+sudo iptables -A POSTROUTING -t nat -j MASQUERADE -s 192.168.2.0/24
+```
+
+On host B with IP 192.168.0.2:
+```
+echo "nameserver 192.168.0.1" >> /etc/resolv.conf
+```
+
+To turn off the sharing:
+```
+echo 0 | sudo tee /proc/sys/net/ipv4/ip_forward > /dev/null
+sudo iptables -t nat -F POSTROUTING
+```
+
+ 
+

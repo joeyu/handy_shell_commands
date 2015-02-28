@@ -1,6 +1,8 @@
-# `AOSP` and `repo` related tips
+# `AOSP` tips
 
-## How to tag a set of projects revisions?
+## `repo`
+
+###How to tag a set of projects revisions?
 
 To tag a set of projects revisions:
 
@@ -16,7 +18,7 @@ $ repo forall -c 'git checkout my_revisions_tag'
 
 This is especially useful when you want to check out some specific project revisions.
 
-## Do NOT `repo sync` a branch that you don't want to rebase!
+### Do NOT `repo sync` a branch that you don't want to rebase!
 
 This is because `repo sync` invokes `git remote update && git rebase` on each of your specified projects. If a merge is expected, the following commands might be helpful:
 
@@ -32,4 +34,12 @@ Assuming you have a third-party Android repo located in `git://git.insignal.co.k
 
 ```
 repo init -u git://git.insignal.co.kr/samsung/exynos/android/manifest.git -b jb --reference=/path/to/local/aosp/mirror
+```
+
+## Build
+
+### Build verbosely
+
+```
+$ make showcommands 
 ```
