@@ -1,7 +1,7 @@
 # `ubuntu` tips
 
 ## Devices
-The devices can be queried in the `/sys/class` directory. For instance, to query the network devices in your system is located in `/sys/class/net`.
+The devices can be queried in the `/sys/class` directory. For instance, network devices in your system are under `/sys/class/net`.
 
 
 ## Network
