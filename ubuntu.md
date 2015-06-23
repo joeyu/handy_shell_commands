@@ -3,6 +3,16 @@
 ## Devices
 The devices can be queried in the `/sys/class` directory. For instance, network devices in your system are under `/sys/class/net`.
 
+## Memory
+
+For more information, refer to [https://www.kernel.org/doc/Documentation/sysctl/vm.txt]
+
+
+### Releasing clean caches, as well as reclaimable slab objects like dentries and inodes.
+
+```
+# sync && echo 3 > /proc/sys/vm/drop_caches
+```
 
 ## Network
 
@@ -15,7 +25,6 @@ The following commands allows the user to set the MAC address of an ethernet dev
 # ifconfig eth0 hw ether ca:0f:d1:78:15:f5
 # ifup eth0
 ```
-
 You may let the system set this automatically with the following directives in `/etc/network/interfaces`:
 ```
 auto eth0
