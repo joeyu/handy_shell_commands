@@ -1,5 +1,27 @@
 # `ubuntu` tips
 
+## `systemd`
+
+### Switching to a different runlevel
+`systemd` emulates runlevels with symbolic links in the `/lib/systemd/system/runlevel?.target`.
+
+You could switch from runlevel5 to runlevel3 by the following command:
+```
+$ systemctl isolate multi-user.target 
+```
+
+or switch reversely
+```
+$ systemctl isolate graphical.target 
+```
+
+### Setting the default runlevel
+To set the default runlevel to runlevel3:
+```
+# systemctl set-default multi-user.target
+```
+
+
 ## Devices
 The devices can be queried in the `/sys/class` directory. For instance, network devices in your system are under `/sys/class/net`.
 
