@@ -1,5 +1,17 @@
 # `ubuntu` tips
 
+## shell command
+### `sudo` based on the current user's PATH
+```
+$ sudo env "PATH=$PATH"
+```
+
+You could add the following to `~/.bash_aliases` for less typing
+```
+alias sudo=`sudo env PATH=$PATH`
+```
+
+
 ## `systemd`
 
 ### Switching to a different runlevel
