@@ -254,6 +254,15 @@ DIR=$(dirname $0)
 java -jar $DIR/apktool.jar $*
 ```
   
+### Granting permissions to an application
+
+The google play service (com.android.vending) will report that the `android.permission.WRITE_SECURE_SETTINGS` is required, if 
+it isn't installed as a system application (i.e. not in the `/system` directory). This could be done through the following command:
+
+```
+$ adb shell pm grant com.android.vending android.permission.WRITE_SECURE_SETTINGS
+```
+
 
 
 
