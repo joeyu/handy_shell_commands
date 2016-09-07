@@ -267,4 +267,4 @@ $ adb shell pm grant com.android.vending android.permission.WRITE_SECURE_SETTING
 
 
 
-[apktool]:          https://code.google.com/p/android-apktool/
+[apktool]:          https://ibotpeaches.github.io/Apktool/
