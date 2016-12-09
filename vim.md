@@ -1,5 +1,10 @@
 # `vim` tips
 
+## Showing CR (^M) 
+```
+:e ++ff=unix
+```
+
 ## Saving with the `root` privilege
 ```
 :w !sudo tee %
