@@ -5,6 +5,10 @@
 ```
 $ git branch --set-upstream-to=<remote>/<branch> <branch>
 ```
+### Push to a remote and set it as upstream
+```
+$ git push --set-upstream <remote> [branch]
+```
 
 ### Push to another branch on another remote
 ```
