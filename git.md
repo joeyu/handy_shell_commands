@@ -24,3 +24,14 @@ $ git push <remote> --delete <branch>
 ```
 $ git log --all --graph -- decorate
 ```
+
+## Show if a file is being tracked
+```
+git ls-tree -r HEAD --name-only |grep <file_name>
+```
+Note: you need to run the above command in the directory that contains the file or whose sub-directory contains the file.
+
+If you want a list of files that ever existed (i.e. including deleted files):
+```
+git log --pretty=format: --name-only --diff-filter=A | grep <file_name>
+```
