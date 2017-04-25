@@ -1,5 +1,7 @@
 # Handy shell commands
 
+[bash](./bash.md)
+
 [android](./android.md)
 
 [aosp](./aosp.md)
