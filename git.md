@@ -1,31 +1,45 @@
 # `git` tips
 
 ## Branch
-### Set branch's upstream
+### Setting branch's upstream
 ```
 $ git branch --set-upstream-to=<remote>/<branch> <branch>
 ```
-### Push to a remote and set it as upstream
+
+### Pushing to a remote and set it as upstream
 ```
 $ git push --set-upstream <remote> [branch]
 ```
 
-### Push to another branch on another remote
+### Showing a branch's upstream
+```
+$ git branch -avv
+```
+
+### Pushing to another branch on another remote
 ```
 $ git push <remote> <src_commit>:<dst_branch>
 ```
 
-### Delete a remote branch
+### Checking out a branch from a remote
+```
+$ git fetch <remote>
+$ git checkout -b <local_branch> <remote/remote_branch>
+```
+
+
+### Deleting a remote branch
 ```
 $ git push <remote> --delete <branch>
 ```
+
 ## Log
-## Show commit history of all branches in a tree view
+## Showing commit history of all branches in a tree view
 ```
 $ git log --all --graph -- decorate
 ```
 
-## Show if a file is being tracked
+## Showing if a file is being tracked
 ```
 git ls-tree -r HEAD --name-only |grep <file_name>
 ```
