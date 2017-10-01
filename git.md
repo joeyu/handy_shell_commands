@@ -27,25 +27,31 @@ $ git fetch <remote>
 $ git checkout -b <local_branch> <remote/remote_branch>
 ```
 
-
 ### Deleting a remote branch
 ```
 $ git push <remote> --delete <branch>
 ```
 
 ## Log
-## Showing commit history of all branches in a tree view
+### Showing commit history of all branches in a tree view
 ```
 $ git log --all --graph --decorate
 ```
 
-## Showing if a file is being tracked
+### Showing if a file is being tracked
 ```
-git ls-tree -r HEAD --name-only |grep <file_name>
+$ git ls-tree -r HEAD --name-only |grep <file_name>
 ```
 Note: you need to run the above command in the directory that contains the file or whose sub-directory contains the file.
 
 If you want a list of files that ever existed (i.e. including deleted files):
 ```
-git log --pretty=format: --name-only --diff-filter=A | grep <file_name>
+$ git log --pretty=format: --name-only --diff-filter=A | grep <file_name>
 ```
+
+## Submodule
+### Deleting a submodule
+```
+$ git rm <submodule_path>
+```
+
