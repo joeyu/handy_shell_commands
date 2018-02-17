@@ -10,3 +10,13 @@ ffmpeg -i animated.gif -movflags faststart -pix_fmt yuv420p -vf "scale=trunc(iw/
 * pix_fmt – MP4 videos store pixels in different formats. We include this option to specify a specific format which has maximum compatibility across all browsers.
 
 * vf – MP4 videos using H.264 need to have a dimensions that are divisible by 2. This option ensures that’s the case.
+
+You could use the following shell script for convenience:
+
+```
+#!/bin/bash
+
+infile=$1
+outfile=${infile%.gif}.mp4
+ffmpeg -i ${infile} -movflags faststart -pix_fmt yuv420p -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" ${outfile} 
+```
