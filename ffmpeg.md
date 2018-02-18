@@ -22,6 +22,8 @@ ffmpeg -i ${infile} -movflags faststart -pix_fmt yuv420p -vf "scale=trunc(iw/2)*
 ```
 
 ## Splitting video file
+The following script splits a video file (`argv1`) to a number (`argv2`) of smaller ones:
+
 ```
 #!/bin/bash
 
@@ -38,5 +40,5 @@ for ((i = 0; i < no_of_pieces; i++)); do
     cmd+=" -c copy -ss $start -t $duration ${outfile_base}${i}.${outfile_ext}"
     start=$((start + duration))
 done
-eval cmd
+eval $cmd
 ```
