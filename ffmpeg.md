@@ -20,3 +20,23 @@ infile=$1
 outfile=${infile%.gif}.mp4
 ffmpeg -i ${infile} -movflags faststart -pix_fmt yuv420p -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" ${outfile} 
 ```
+
+## Splitting video file
+```
+#!/bin/bash
+
+infile="$1"
+outfile_base="${infile%.*}"
+outfile_ext="${infile##*.}"
+no_of_pieces=$2
+duration=$(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "$infile")
+duration=${duration%.*}
+duration=$((duration / no_of_pieces))
+start=0
+cmd="ffmpeg -i ${infile}" 
+for ((i = 0; i < no_of_pieces; i++)); do
+    cmd+=" -c copy -ss $start -t $duration ${outfile_base}${i}.${outfile_ext}"
+    start=$((start + duration))
+done
+eval cmd
+```
