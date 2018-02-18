@@ -1,5 +1,7 @@
 # Handy shell commands
 
+Notes for my _bad_ memory...
+
 [bash](./bash.md)
 
 [android](./android.md)
