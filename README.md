@@ -19,3 +19,5 @@ Notes for my _bad_ memory...
 [html5](./html5.md)
 
 [ffmpeg](./ffmpeg.md)
+
+[cmake](./cmake.md)
