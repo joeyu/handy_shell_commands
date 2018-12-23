@@ -23,6 +23,17 @@ The following adds preprocessor definitions to the specific target `tgt`:
 target_compile_definitions(tgt PUBLIC VAR3=3 VAR4=4)
 ```
 
+# Adding `include` directories
+The following adds `include` directories globally and makes effect on all subsequent targets:
+```
+include_directories(DIR1 DIR2)
+```
+
+The following adds `include` directories to the specific target `tgt`:
+```
+target_include_directories(tgt PUBLIC DIR3 DIR3)
+```
+
 
 ## Checking target 64-bit or 32-bit system
 ```
