@@ -10,6 +10,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 The above doesn't affect CUDA targets, to make effect on CUDA targets,
 ```
 set(CMAKE_CUDA_STANDARD 11)
+set(CMAKE_CUDA_STANDARD_REQUIRED ON)
 ```
 
 The following specifies C++11 to the specific target `tgt`:
@@ -18,6 +19,7 @@ target_compile_features(tgt PUBLIC cxx_std_11)
 ```
 
 `target_compile_features` works for CUDA target too.
+
 
 ## Adding preprocessor definitions
 The following adds preprocessor definitions globally and makes effect on all subsequent targets:
@@ -29,6 +31,7 @@ The following adds preprocessor definitions to the specific target `tgt`:
 ```
 target_compile_definitions(tgt PUBLIC VAR3=3 VAR4=4)
 ```
+
 
 # Adding `include` directories
 The following adds `include` directories globally and makes effect on all subsequent targets:
