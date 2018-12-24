@@ -1,5 +1,7 @@
 # `cmake` tips
 
+Functions list below can be got from [here](./helper.cmake)
+
 ## Getting help information on property
 The following `cmake` shell command gets help information on `property`:
 ```
