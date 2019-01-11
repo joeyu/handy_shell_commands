@@ -56,7 +56,7 @@ $ git rm <submodule_path>
 ```
 
 ### Making an existing submodule tracking a remote branch
-https://stackoverflow.com/questions/1777854/how-can-i-specify-a-branch-tag-when-adding-a-git-submodule/18799234#18799234
+See [here](https://stackoverflow.com/questions/1777854/how-can-i-specify-a-branch-tag-when-adding-a-git-submodule/18799234#18799234)
 
 ```
 cd /path/to/your/parent/repo
