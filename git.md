@@ -55,3 +55,10 @@ $ git log --pretty=format: --name-only --diff-filter=A | grep <file_name>
 $ git rm <submodule_path>
 ```
 
+### Making an existing submodule tracking a remote branch
+https://stackoverflow.com/questions/1777854/how-can-i-specify-a-branch-tag-when-adding-a-git-submodule/18799234#18799234
+
+```
+cd /path/to/your/parent/repo
+git config -f .gitmodules submodule.<path>.branch <branch>
+```
