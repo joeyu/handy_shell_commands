@@ -1,5 +1,10 @@
 # `vim` tips
 
+## Saving file with 'utf-8' encoding 
+```
+:w ++enc=utf-8 
+```
+
 ## Showing CR (^M) 
 ```
 :e ++ff=unix
