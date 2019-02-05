@@ -1,8 +1,17 @@
 # `vim` tips
 
 ## Saving file with 'utf-8' encoding with BOM (EFBBBF)
+Save once
 ```
 :w ++enc=utf-8 
+```
+Always save
+```
+:set fileencoding=utf8
+```
+Write with BOM (EFBBBF)
+```
+:set bomb
 ```
 
 
