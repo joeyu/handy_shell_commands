@@ -1,11 +1,20 @@
 # `vim` tips
 
+## Disabling menu translations
+In Simplified Chinese version of Windows 10, the menu characters are displayed 
+incorrectly, or you just want to keep the menu English.
+```
+set langmenu=en_US
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
+```
+
 ## Saving file with 'utf-8' encoding with BOM (EFBBBF)
 Save once
 ```
 :w ++enc=utf-8 
 ```
-Always save
+Always save with `utf-8`, which could be put into the `vimrc` file.
 ```
 :set fileencoding=utf-8
 ```
