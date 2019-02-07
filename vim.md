@@ -7,7 +7,7 @@ Save once
 ```
 Always save
 ```
-:set fileencoding=utf8
+:set fileencoding=utf-8
 ```
 Write with BOM (EFBBBF)
 ```
