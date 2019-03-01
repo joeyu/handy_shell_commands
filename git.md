@@ -52,6 +52,7 @@ $ git log --pretty=format: --name-only --diff-filter=A | grep <file_name>
 ## Submodule
 ### Deleting a submodule
 ```
+$ git deinit <submodule_path>
 $ git rm <submodule_path>
 ```
 
