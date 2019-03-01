@@ -60,6 +60,10 @@ $ git rm <submodule_path>
 See [here](https://stackoverflow.com/questions/1777854/how-can-i-specify-a-branch-tag-when-adding-a-git-submodule/18799234#18799234)
 
 ```
-cd /path/to/your/parent/repo
-git config -f .gitmodules submodule.<path>.branch <branch>
+$ cd /path/to/your/parent/repo
+$ git config -f .gitmodules submodule.<path>.branch <branch>
+```
+Then you can update the submodule
+```
+$ git submodule update --remote
 ```
