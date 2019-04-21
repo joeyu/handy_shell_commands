@@ -42,3 +42,8 @@ for ((i = 0; i < no_of_pieces; i++)); do
 done
 eval $cmd
 ```
+
+## Mixing a subtitle file with an .MP4 file into an .MKV file
+```
+ffmpeg -i input.mp4 -f srt -i input.srt -map 0:0 -map 0:1 -map 1:0 -c:v copy -c:a copy -c:s srt -metadata:s:s:0 language=LANGUAGE -disposition:s:0 default output.mkv
+```
