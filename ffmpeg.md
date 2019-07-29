@@ -47,3 +47,23 @@ eval $cmd
 ```
 ffmpeg -i input.mp4 -f srt -i input.srt -map 0:0 -map 0:1 -map 1:0 -c:v copy -c:a copy -c:s srt -metadata:s:s:0 language=LANGUAGE -disposition:s:0 default output.mkv
 ```
+
+## Video filters
+To scale a video to half of its dimension:
+```
+ffmpeg -i input.mp4 -vf "scale=iw/2:ih/2" output.mp4
+```
+Or simply:
+```
+ffmpeg -i input.mp4 -vf "scale=iw/2:-1" output.mp4
+```
+
+To crop a video to 100x200 from coordinate of 20,30 :
+```
+ffmpeg -i input.mp4 -vf "crop=100:200:20:30"
+```
+
+You could chain the above crop and scale operations together:
+```
+ffmpeg -i input.mp4 -vf "crop=100:200:20:30,scale=iw/2:-1"
+```
