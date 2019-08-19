@@ -85,5 +85,26 @@ echo 0 | sudo tee /proc/sys/net/ipv4/ip_forward > /dev/null
 sudo iptables -t nat -F POSTROUTING
 ```
 
+### Enabling WiFi
+
+Install `network-manager` and `nmcli` if they haven't been installed yet:
+```bash
+$ sudo apt install network-manager nmcli
+$ sudo systemctl enable network-manager
+```
+
+List available WiFi hotspots:
+```bash
+$ nmcli d wifi list
+```
+
+```bash
+$ sudo nmcli d wifi connect <WiFiSSID> password <WiFiPassword> iface <WifiInterface>
+```
+
+
+
+
+
  
 
