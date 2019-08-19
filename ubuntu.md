@@ -92,6 +92,7 @@ Install `network-manager` and `nmcli` if they haven't been installed yet:
 $ sudo apt install network-manager nmcli
 $ sudo systemctl enable network-manager
 ```
+Run `nmcli d` to check if WiFi device (e.g. wlan0) is up.
 
 List available WiFi hotspots:
 ```bash
@@ -99,7 +100,7 @@ $ nmcli d wifi list
 ```
 
 ```bash
-$ sudo nmcli d wifi connect <WiFiSSID> password <WiFiPassword> iface <WifiInterface>
+$ sudo nmcli d wifi connect <WiFi Interface>
 ```
 
 
