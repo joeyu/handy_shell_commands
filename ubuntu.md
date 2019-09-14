@@ -100,7 +100,7 @@ $ nmcli d wifi list
 ```
 
 ```bash
-$ sudo nmcli d wifi connect <WiFi Interface>
+$ sudo nmcli d wifi connect <WiFi Interface> password <WiFi Password>
 ```
 
 
