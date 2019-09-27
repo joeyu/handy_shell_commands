@@ -85,7 +85,7 @@ echo 0 | sudo tee /proc/sys/net/ipv4/ip_forward > /dev/null
 sudo iptables -t nat -F POSTROUTING
 ```
 
-### Enabling WiFi
+### Connecting to a WiFi Access Point
 
 Install `network-manager` and `nmcli` if they haven't been installed yet:
 ```bash
@@ -102,7 +102,18 @@ $ nmcli d wifi list
 ```bash
 $ sudo nmcli d wifi connect <WiFi Interface> password <WiFi Password>
 ```
+### Turning WiFi into Access Point
 
+Install `network-manager` and `nmcli` if they haven't been installed yet:
+```bash
+$ sudo apt install network-manager nmcli
+$ sudo systemctl enable network-manager
+```
+
+Turn `wlan0` into hotspot
+```bash
+$ sudo nmcli d wifi hotspot ifname wlan0 ssid <SSID> passsword <PASSWORD>
+```
 
 
 
