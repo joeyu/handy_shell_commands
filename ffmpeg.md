@@ -48,6 +48,11 @@ eval $cmd
 ffmpeg -i input.mp4 -f srt -i input.srt -map 0:0 -map 0:1 -map 1:0 -c:v copy -c:a copy -c:s srt -metadata:s:s:0 language=LANGUAGE -disposition:s:0 default output.mkv
 ```
 
+## Burning a subtitle file into an .MP4 file
+```
+ffmpeg -i input.mp4 -vf subtitles=subtitle.srt output.mp4
+```
+
 ## Video filters
 To scale a video to half of its dimension:
 ```
