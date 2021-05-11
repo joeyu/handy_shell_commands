@@ -1,5 +1,13 @@
 # `git` tips
 
+## Merge two unrelated repos
+You happen to merge an entirely different repo `unrelated_repo` into the local one:
+```
+$git remote add unrelated_repo <unrelated_repo_url>
+$git fetch unrelated_repo
+$git merge unrelated_repo/<branch> --allow-unrelated-histories
+```
+
 ## Branch
 ### Setting branch's upstream
 ```
